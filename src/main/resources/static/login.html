@@ -8,12 +8,28 @@
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
+
+    var  userName;
+    var password;
     function commit() {
-        alert("commit")
-        console.log("commit")
+         userName = $('#user').val()
+         password = $("#pwd").val()
+        url = "/users/login?name="+userName+"&pswd="+password
+        console.log(url)
+        $.get(url,function (r) {
+            console.log(r)
+            if (r.data.passWord  == password) {
+                userName = r.data.userName
+                password = r.data.passWord
+                console.log(userName,password)
+                window.location.href = "/home.html?user="+userName+"&pswd="+password+"&id="+r.data.userId
+            }else {
+                alert("用户名密码错误")
+            }
+        })
+        console.log("end")
     }
 
-    console.log("aa")
 
     function clean() {
         console.log("clear")
@@ -25,14 +41,12 @@
 </script>
 <form>
     <label>用户名：</label>
-    <input type="text"  id="user"></br></br>
+    <input type="text" name = "user" id="user" value="s201"></br></br>
     <label>密&nbsp&nbsp码：</label>
-    <input type="password"  id="pwd"><br><br>
+    <input type="password" name = "pwd" id="pwd" value="201"><br><br>
     <label>请输入用户名密码</label><br><br>
     <input type="button" name="" value="提交" onclick="commit()">
     <input type="button" name="" value="重写" onclick="clean()">
 </form>
-<button type="button"  onclick="commit()">提交</button>
-<button  type="button" onclick="clean()">重写</button>
 </body>
 </html>

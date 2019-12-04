@@ -5,12 +5,90 @@
     <title>Title</title>
 </head>
 <body>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript" >
+    $(function () {
+        $("#name").text(getUrlParam("user"))
+        $("#pswd").text(getUrlParam("pswd"))
+        id = getUrlParam("pswd")
+        time = dateToString(new Date())
+        console.log(time)
+        $("#time1").text(time)
+
+        url = "/class/get?id="+id
+        $.get(url,function (r) {
+            console.log(r)
+            putClass(r.data)
+            // if (r.data.passWord  == password) {
+            //     userName = r.data.userName
+            //     password = r.data.passWord
+            //     console.log(userName,password)
+            //     window.location.href = "/home.html?user="+userName+"&pswd="+password
+            // }else {
+            //     alert("用户名密码错误")
+            // }
+        })
+        list = [1,2,3]
+        putClass(list)
+    })
+
+    function putClass(list) {
+        var html = ""
+        for (var i = 0; i < list.length; i++) {
+            var class1 = list[i]
+            // html += "<td>" + class1 + "</td><br/>"
+            html +="<tr><td>"+class1+"</td></tr>\n"
+        }
+        document.getElementById("list").innerHTML = html
+    }
+
+    function dateToString(date){
+        var year = date.getFullYear();
+        var month =(date.getMonth() + 1).toString();
+        var day = (date.getDate()).toString();
+        if (month.length == 1) {
+            month = "0" + month;
+        }
+        if (day.length == 1) {
+            day = "0" + day;
+        }
+        var hours = date.getHours().toString();
+        if(hours.length == 1){
+            hours = "0" + hours;
+        }
+        var mintus = date.getMinutes().toString();
+        if(mintus.length == 1){
+            mintus = "0" + mintus;
+        }
+        var second = date.getSeconds().toString();
+        if(second.length == 1){
+            second = "0" + second;
+        }
+
+        var dateTime = year + "-" + month + "-" + day + " " + hours + ":" +  mintus + ":" + second;
+        return dateTime;
+    }
+
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); // 构造一个含有目标参数的正则表达式对象
+        var r = window.location.search.substr(1).match(reg); // 匹配目标参数
+        if (r != null) return unescape(r[2]);
+        return null; // 返回参数值
+    }
+
+
+
+</script>
+
 欢迎您来到您的空间<br>
-您的用户名，密码:<p id="name"></p>/<p id="pswd"></p>
+您的用户名，密码:<p id="name"></p>
+<p id="pswd"></p>
+
+时间：<p id="time1" ></p>
 <br>
 
 我所选修的课程：
-<table border="1">
+<table border="1" id="list">
     <tr>
         <td>分别赶赴该部分</td>
     </tr>

@@ -19,6 +19,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    // http://localhost/users/login?name=hh&pswd=hh
     @GetMapping("login")
     public ResponseEntity login (HttpServletRequest request){
 
@@ -28,6 +29,14 @@ public class UserController {
         Student student = new Student();
         student.setUserName(userName);
         student.setPassWord(passwd);
-        return ResponseEntity.ok(new JSONResult<Boolean>(userService.login(student)));
+        Student student1 = userService.login(student);
+        if (student1.getPassWord().equals(passwd)) {
+            request.getSession().setAttribute(SESSION_KEY,student1.getUserName());
+            JSONResult jsonResult = new JSONResult();
+            jsonResult.setState(1);
+            jsonResult.setData(student1);
+            return ResponseEntity.ok(jsonResult);
+        }
+        return ResponseEntity.ok(new JSONResult<Student>(student1));
     }
 }

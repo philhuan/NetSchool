@@ -44,13 +44,14 @@ public class LoginInterceptor extends WebMvcConfigurerAdapter {
             // 排除配置
 //        addInterceptor.excludePathPatterns("/users/re");
 //        addInterceptor.excludePathPatterns("/login**");
-//            addInterceptor.excludePathPatterns("/use*");
-//            addInterceptor.excludePathPatterns("/new*");
+            addInterceptor.excludePathPatterns("/user/*");
+            addInterceptor.excludePathPatterns("/class*");
 //            addInterceptor.excludePathPatterns("/index.html");
+
 
             // 拦截配置
 //        addInterceptor.addPathPatterns("/user*");
-//        addInterceptor.addPathPatterns("/news*");
+        addInterceptor.addPathPatterns("/home.html");
             addInterceptor.addPathPatterns("/");
         }
 

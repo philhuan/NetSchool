@@ -13,17 +13,19 @@ package cn.edu.hfut.net.netschool.service.impl;
 import cn.edu.hfut.net.netschool.mapper.StudentClassMapper;
 import cn.edu.hfut.net.netschool.service.StudentClassService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
- * 〈一句话功能简述〉<br> 
+ * 〈一句话功能简述〉<br>
  * 〈〉
  *
  * @author lenovo
  * @create 2019/12/4
  * @since 1.0.0
  */
+@Service
 public class StudentClassServiceImpl implements StudentClassService {
 
     @Autowired

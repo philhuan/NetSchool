@@ -5,5 +5,5 @@ import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 public interface UserService {
-    public Boolean login(Student student) ;
+    public Student login(Student student) ;
 }
