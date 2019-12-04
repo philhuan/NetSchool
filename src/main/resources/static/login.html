@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>登录页</title>
 </head>
 <body>
-$END$
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+    function commit() {
+        alert("commit")
+        console.log("commit")
+    }
+
+    console.log("aa")
+
+    function clean() {
+        console.log("clear")
+        alert("clear")
+        console.log($("#user"))
+        $("#pwd").val("")
+        $("#user").val("");
+
+
+
+    }
+</script>
+<form>
+    <label>用户名：</label>
+    <input type="text"  id="user"></br></br>
+    <label>密&nbsp&nbsp码：</label>
+    <input type="password"  id="pwd"><br><br>
+    <label>请输入用户名密码</label><br><br>
+    <input type="button" name="" value="提交" onclick="commit()">
+    <input type="button" name="" value="重写" onclick="clean()">
+</form>
+<button type="button"  onclick="commit()">提交</button>
+<button  type="button" onclick="clean()">重写</button>
+
+
+
 </body>
 </html>
