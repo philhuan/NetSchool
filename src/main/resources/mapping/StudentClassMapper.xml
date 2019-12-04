@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.edu.hfut.net.netschool.mapper.ClassMapper">
+<mapper namespace="cn.edu.hfut.net.netschool.mapper.StudentClassMapper">
 
-    <sql id="table">class</sql>
+    <sql id="table">student_class</sql>
 <!--    <sql id="selectFields">news_id,title,content,pub_time,uid</sql>-->
 <!--    <sql id="insertFields">title,content,pub_time,uid</sql>-->
 
@@ -24,7 +24,7 @@
         CLASSID
         FROM
         <include refid="table"/>
-        WHERE CLASSNAME = #{className}
+        WHERE USERID = #{userId}
     </select>
 
 
