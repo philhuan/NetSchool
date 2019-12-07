@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>登录页</title>
+
 </head>
 <body>
-
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
-
     var  userName;
     var password;
     function commit() {
@@ -30,9 +29,7 @@
         console.log("end")
     }
 
-
     function clean() {
-        console.log("clear")
         alert("clear")
         console.log($("#user"))
         $("#pwd").val("")
@@ -41,9 +38,9 @@
 </script>
 <form>
     <label>用户名：</label>
-    <input type="text" name = "user" id="user" value="s201"></br></br>
+    <input type="text" name = "user" id="user" value=""></br></br>
     <label>密&nbsp&nbsp码：</label>
-    <input type="password" name = "pwd" id="pwd" value="201"><br><br>
+    <input type="password" name = "pwd" id="pwd" value=""><br><br>
     <label>请输入用户名密码</label><br><br>
     <input type="button" name="" value="提交" onclick="commit()">
     <input type="button" name="" value="重写" onclick="clean()">

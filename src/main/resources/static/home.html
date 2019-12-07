@@ -10,7 +10,7 @@
     $(function () {
         $("#name").text(getUrlParam("user"))
         $("#pswd").text(getUrlParam("pswd"))
-        id = getUrlParam("pswd")
+        id = getUrlParam("id")
         time = dateToString(new Date())
         console.log(time)
         $("#time1").text(time)
@@ -19,14 +19,6 @@
         $.get(url,function (r) {
             console.log(r)
             putClass(r.data)
-            // if (r.data.passWord  == password) {
-            //     userName = r.data.userName
-            //     password = r.data.passWord
-            //     console.log(userName,password)
-            //     window.location.href = "/home.html?user="+userName+"&pswd="+password
-            // }else {
-            //     alert("用户名密码错误")
-            // }
         })
         list = [1,2,3]
         putClass(list)
@@ -36,7 +28,6 @@
         var html = ""
         for (var i = 0; i < list.length; i++) {
             var class1 = list[i]
-            // html += "<td>" + class1 + "</td><br/>"
             html +="<tr><td>"+class1+"</td></tr>\n"
         }
         document.getElementById("list").innerHTML = html
@@ -75,26 +66,22 @@
         if (r != null) return unescape(r[2]);
         return null; // 返回参数值
     }
-
-
-
 </script>
 
 欢迎您来到您的空间<br>
-您的用户名，密码:<p id="name"></p>
-<p id="pswd"></p>
+<br>
+您的用户名，密码:<span id="name"></span>
+/
+<span id="pswd"></span>
 
-时间：<p id="time1" ></p>
+<br>
+时间：<span id="time1" ></span>
+<br>
+<br>
 <br>
 
 我所选修的课程：
 <table border="1" id="list">
-    <tr>
-        <td>分别赶赴该部分</td>
-    </tr>
-    <tr>
-        <td>发布单边大幅波动</td>
-    </tr>
 </table>
 </body>
 </html>
